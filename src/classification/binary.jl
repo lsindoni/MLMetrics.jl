@@ -106,7 +106,7 @@ for fun in (:true_positives,  :true_negatives,
             :condition_positive, :condition_negative, :prevalence,
             :predicted_condition_positive, :predicted_condition_negative)
     fun_name = string(fun)
-    fun_desc = rstrip(replace(string(fun), r"([a-z]+)_?([a-z]*)", s"\1 \2"))
+    fun_desc = rstrip(replace(string(fun), r"([a-z]+)_?([a-z]*)" => s"\1 \2"))
 
     # Convenience syntax for using native labels
     @eval function ($fun)(targets::AbstractArray, outputs::AbstractArray, encoding::AbstractVector)
@@ -135,7 +135,7 @@ for fun in (:true_positives,  :true_negatives,
     allowed to be row-vectors (or row-matrices).
 
     $ENCODING_DESCR
-    """ ->
+    """
     function ($fun)(target::AbstractArray,
                     output::AbstractArray,
                     encoding::BinaryLabelEncoding)

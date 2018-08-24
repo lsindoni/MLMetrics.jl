@@ -7,6 +7,8 @@ using MLLabelUtils: LabelEncoding, BinaryLabelEncoding
 using LossFunctions
 using LossFunctions: AverageMode, @_dimcheck
 using UnicodePlots
+using Statistics
+using Random
 
 export
 
@@ -83,4 +85,3 @@ include("classification/roc.jl")
 include("regression.jl")
 
 end # module MLMetrics
-

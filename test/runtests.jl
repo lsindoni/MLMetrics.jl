@@ -1,8 +1,10 @@
 using MLMetrics
 using MLLabelUtils
 using LossFunctions
-using Base.Test
+using Test
 using ReferenceTests
+# using Random # This is needed if 'randstring' is called
+# using Statistics # This is necessary to use 'mean' etc.
 
 tests = [
     "classification.jl",
@@ -14,4 +16,3 @@ for test in tests
         include(test)
     end
 end
-

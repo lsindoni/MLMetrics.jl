@@ -186,7 +186,7 @@ function accuracy_at_sensitivity(r::ROCCurve, at::Number)
 end
 
 function Base.show(io::IO, r::ROCCurve)
-    print(io, length(r), "-element ", typeof(r).name, " (auc: ", round(auc(r),5), ")")
+    print(io, length(r), "-element ", typeof(r).name, " (auc: ", round(auc(r); digits=5), ")")
 end
 
 function Base.show(io::IO, ::MIME"text/plain", r::ROCCurve)
@@ -225,7 +225,7 @@ function roc(targets::AbstractArray,
              outputs::AbstractArray,
              thresholds::Number = 100,
              encoding::BinaryLabelEncoding = labelenc(targets))
-    roc(targets, outputs, linspace(1,0,thresholds), encoding)
+    roc(targets, outputs, range(1, stop=0, length=thresholds), encoding)
 end
 
 function roc(targets::AbstractArray,
